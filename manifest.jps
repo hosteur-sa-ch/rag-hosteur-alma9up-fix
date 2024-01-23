@@ -1,0 +1,61 @@
+version: 0.1
+type: update
+id: alma9fix232024-addon
+name: Fix for AlmaLinux 9 from Centos 7 Upgrade
+
+categories:
+- apps/dev-and-admin-tools
+
+targetNodes:
+  nodeType:
+    - tomcat6
+    - tomcat7
+    - tomcat8
+    - tomcat85
+    - tomcat9
+    - tomcat
+    - tomee
+    - tomee-dockerized
+    - glassfish3
+    - glassfish4
+    - glassfish
+    - jetty
+    - jetty6
+    - apache
+    - apache2
+    - nginxphp
+    - apache2-ruby
+    - nginx-ruby
+    - nginx-dockerized
+    - nginxphp-dockerized
+    - nodejs
+    - apache-ruby
+    - apache-python
+    - nginxruby
+    - litespeedphp
+    - litespeedadc
+    - lemp
+    - llsmp
+
+homepage: https://github.com/hosteur-sa-ch/rag-hosteur-alma9up-fix
+baseUrl: https://raw.githubusercontent.com/hosteur-sa-ch/rag-hosteur-alma9up-fix/main/
+logo: images/logo-hosteur_ico_2021.png
+
+description:
+  text: Fix for AlmaLinux 9 from Centos 7 Upgrade
+  short: Fix some glibc deployment on AlmaLinux 9 image when upgrading from Centos 7
+
+globals:
+  env: ${env.name}
+  nodeID: ${targetNodes.id}
+
+onInstall:
+    - fix-glibc-common
+
+success: fix applied
+
+actions:
+  fix-ca-trust:
+    cmd[${globals.nodeID}]: |-
+        yum update glibc-common -y
+    user: root
