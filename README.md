@@ -1,4 +1,4 @@
-# Fix for Fix for AlmaLinux 9 from Centos 7 Upgrade 23-2024 on Ragnarokkr nodes
+# Fix for AlmaLinux 9 from Centos 7 Upgrade 23-2024 on Ragnarokkr nodes
 
 fixing glibc installation package when upgrading from Centos 7 image
 
