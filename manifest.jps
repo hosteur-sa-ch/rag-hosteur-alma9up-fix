@@ -55,7 +55,7 @@ onInstall:
 success: fix applied
 
 actions:
-  fix-ca-trust:
+  fix-glibc-common:
     cmd[${globals.nodeID}]: |-
         yum update glibc-common -y
     user: root
